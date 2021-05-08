@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrace na letní dětský tábor</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<em class="kosik">
+    <h1>Registrace</h1>
+    <div>Registrace s číslem <strong th:text="${kod}">12346</strong> byla vytvořena.
+        <span th:unless="${#strings.isEmpty(email)}">Na e-mail <strong th:text="${email}">zakaznik@example.com</strong> byla zaslána
+                rekapitulace registrace:</span>
+    </div>
+
+    <div><em>Jméno:</em>
+        <span type="text" th:text="${form.jmeno}"/>
+    </div>
+
+    <div><em>Příjmení</em>
+        <span type="text" th:text="${form.prijmeni}"/>
+    </div>
+
+    <div><em>Datum narození:</em>
+        <span th:text="${form.datumNarozeni}" type="date"/>
+    </div>
+
+    <div><em>Pohlaví:</em>
+        <span type="text" th:text="${form.pohlavi}"/>
+    </div>
+
+    <div><em>Sport:</em>
+        <span type="text" th:text="${form.sport}"/>
+    </div>
+
+    <div><em>Turnus:</em>
+        <span type="text" th:text="${turnus}"/>
+    </div>
+
+    <div><em>E-mail:</em>
+        <span type="email" th:text="${form.email}"/>
+    </div>
+
+    <div><em>Telefon:</em>
+        <span type="text" th:text="${form.telefon}"/>
+    </div>
+
+</body>
+</html>
