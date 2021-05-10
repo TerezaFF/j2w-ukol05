@@ -38,14 +38,14 @@ public class RegistraceController {
     Period period = form.getDatumNarozeni().until(LocalDate.now());
     int vek = period.getYears();
 
-      if (vek < 9 || vek > 15) {
-        bindingResult.rejectValue("datumNarozeni", "", "Tábor je určrn pro děti od 9 do 15 let včetně.");
-        return "formular";
-      }
-      if (form.getSport().size() <= 1) {
-        bindingResult.rejectValue("sport", "", "Pro úspěšnou registraci je potřeba vybrat alespoň dva sporty.");
-        return "formular";
-      }
+    if (vek < 9 || vek > 15) {
+      bindingResult.rejectValue("datumNarozeni", "", "Tábor je určrn pro děti od 9 do 15 let včetně.");
+      return "formular";
+    }
+    if (form.getSport() == null || form.getSport().size() <= 1) {
+      bindingResult.rejectValue("sport", "", "Pro úspěšnou registraci je potřeba vybrat alespoň dva sporty.");
+      return "formular";
+    }
 
     return new ModelAndView("/registrovano")
             .addObject("kod", Math.abs(random.nextInt()))
